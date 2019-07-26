@@ -1,0 +1,49 @@
+<p>curd-comp works!</p>
+
+<div class="container">
+    <form>
+      <div class="form-group">
+        <label for="fname">fname</label>
+        <input type="text" class="form-control" id="fname" name="fname" [(ngModel)]="user.fname" placeholder="Enter first name">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="lname">lname</label>
+        <input type="text" class="form-control" id="lname"  name="lname" [(ngModel)]="user.lname"  placeholder="Enter last name">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1"  name="email" [(ngModel)]="user.email" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="addusers()">AddUser</button>&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="updateUser()">Update</button>
+    </form>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of listUser">
+        <th scope="row">{{user._id}}</th>
+        <td>{{user.fname}}</td>
+        <td>{{user.lname}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="editUser(user)">Edit</button> &nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="deleteUser(user)" >Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
